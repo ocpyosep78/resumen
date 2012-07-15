@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_cates" value="name:idCategoria;datatype:int,name:codigoCategoria;datatype:string,name:nombreCategoria;datatype:string" />
+	<infoitem key="UD_scates" value="name:idSubcategoria;datatype:int,name:codigoSubcategoria;datatype:string,name:nombreSubcategoria;datatype:string,name:idCategoria;datatype:int" />
+	<infoitem key="UD_anios" value="name:anoResumen;datatype:string" />
+	<infoitem key="UD_subcat" value="name:idSubcategoria;datatype:int,name:codigoSubcategoria;datatype:string,name:nombreSubcategoria;datatype:string,name:idCategoria;datatype:int" />
+</info>

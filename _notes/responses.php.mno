@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_responses" value="name:idResumen;datatype:int,name:codigoResumen;datatype:int,name:anoResumen;datatype:string,name:idUbicacion;datatype:int,name:tituloResumen;datatype:string,name:textoResumen;datatype:blob,name:archivoResumen;datatype:string,name:autoresResumen;datatype:string,name:idSubcategoria;datatype:int,name:idTutor;datatype:int" />
+</info>

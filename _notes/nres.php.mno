@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_ubicaciones" value="name:idUbicacion;datatype:int,name:nombreUbicacion;datatype:blob" />
+	<infoitem key="UD_tutores" value="name:idTutor;datatype:int,name:cedulaTutor;datatype:string,name:nombreTutor;datatype:string,name:apellidoTutor;datatype:string,name:profesionTutor;datatype:string,name:postgradoTutor;datatype:string,name:telfTutor;datatype:string,name:emailTutor;datatype:string" />
+	<infoitem key="UD_categorias" value="name:idCategoria;datatype:int,name:codigoCategoria;datatype:string,name:nombreCategoria;datatype:string" />
+	<infoitem key="UD_subcategorias" value="name:idSubcategoria;datatype:int,name:codigoSubcategoria;datatype:string,name:nombreSubcategoria;datatype:string,name:idCategoria;datatype:int" />
+</info>

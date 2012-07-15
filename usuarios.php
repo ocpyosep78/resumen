@@ -1,0 +1,20 @@
+<?php require_once("cop.php") ?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<?php require_once("cabeceras.php");?>
+        <script src="js/gen_validatorv4.js" type="text/javascript"></script>
+	</head>
+    <body>
+        <?php require_once("header.php");?>
+        <?php require_once("datasesion.php");?>
+        <?php require_once('controlUsuarios.php');?>
+        <?php require_once("footer.php"); ?>
+        <?php require_once("btsjavascript.php"); ?>
+        <?php
+            if (isset($_GET['correcto'])) {
+                echo "<script>alert('Los datos fueron almacenados correctamente');</script>>";
+            }
+        ?>
+    </body>
+</html>

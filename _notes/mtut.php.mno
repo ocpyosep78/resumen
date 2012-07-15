@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_constutor" value="name:idTutor;datatype:int,name:cedulaTutor;datatype:string,name:nombreTutor;datatype:string,name:apellidoTutor;datatype:string,name:profesionTutor;datatype:string,name:postgradoTutor;datatype:string,name:telfTutor;datatype:string,name:emailTutor;datatype:string" />
+</info>
