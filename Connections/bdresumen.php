@@ -5,7 +5,7 @@
 	$hostname_bdresumen = "localhost";
 	$database_bdresumen = "bdresumen";
 	$username_bdresumen = "root";
-	$password_bdresumen = "";
+	$password_bdresumen = "root";
 	$bdresumen = mysql_pconnect($hostname_bdresumen, $username_bdresumen, $password_bdresumen) or trigger_error(mysql_error(),E_USER_ERROR);
 	
 	mysql_select_db($database_bdresumen, $bdresumen);

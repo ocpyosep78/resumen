@@ -121,6 +121,7 @@ $queryString_categorias = sprintf("&totalRows_categorias=%d%s", $totalRows_categ
             <th>Código</th>
             <th>Nombre</th>
             <?php if ($_SESSION['modificarCategorias']=="Y") {?><th>&nbsp;</th><?php } ?>
+            <?php if ($_SESSION['modificarCategorias']=="Y") {?><th>&nbsp;</th><?php } ?>
             <?php if ($_SESSION['eliminarCategorias']=="Y") {?><th>&nbsp;</th><?php } ?>
           </tr>
         </thead>
@@ -130,6 +131,7 @@ $queryString_categorias = sprintf("&totalRows_categorias=%d%s", $totalRows_categ
           <tr>
           	<td><?php echo $row_categorias['codigoCategoria']; ?></td>
             <td><?php echo $row_categorias['nombreCategoria']; ?></td>
+            <?php if ($_SESSION['modificarCategorias']=="Y") {?><td><a href="categorias.php?p=mcar&idCategoria=<?php echo $row_categorias['idCategoria']; ?>"><i class="icon-th-list"></i> Áreas</a></td><?php } ?>
             <?php if ($_SESSION['modificarCategorias']=="Y") {?><td><a href="categorias.php?p=mcat&idCategoria=<?php echo $row_categorias['idCategoria']; ?>"><i class="icon-edit"></i> Modificar</a></td><?php } ?>
             <?php if ($_SESSION['eliminarCategorias']=="Y") {?><td><a href="delcat.php?idCategoria=<?php echo $row_categorias['idCategoria']; ?>" onclick="return confirme();"><i class="icon-remove"></i> Eliminar</a></a></td><?php } ?>
           </tr>

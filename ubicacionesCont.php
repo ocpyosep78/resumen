@@ -126,7 +126,7 @@ $queryString_ubicaciones = sprintf("&totalRows_ubicaciones=%d%s", $totalRows_ubi
           <tr>
           	<td><?php echo $row_ubicaciones['nombreUbicacion']; ?></td>
             <?php if ($_SESSION['modificarUbicaciones']=="Y") {?><td><a href="ubicaciones.php?p=mubi&idUbicacion=<?php echo $row_ubicaciones['idUbicacion']; ?>"><i class="icon-edit"></i> Modificar</a></td><?php } ?>
-            <?php if ($_SESSION['modificarUbicaciones']=="Y") {?><td><a href="delubi.php?idUbicacion=<?php echo $row_ubicaciones['idUbicacion']; ?>" onclick="return confirme();"><i class="icon-remove"></i> Eliminar</a></a></td><?php } ?>
+            <?php if ($_SESSION['eliminarUbicaciones']=="Y") {?><td><a href="delubi.php?idUbicacion=<?php echo $row_ubicaciones['idUbicacion']; ?>" onclick="return confirme();"><i class="icon-remove"></i> Eliminar</a></a></td><?php } ?>
           </tr>
          <?php } while ($row_ubicaciones = mysql_fetch_assoc($ubicaciones)); ?>
         </tbody>
