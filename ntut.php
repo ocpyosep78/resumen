@@ -77,15 +77,13 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
           <div class="row-fluid">
             <form name="ntut" id="ntut" class="form-horizontal" action="<?php echo $editFormAction; ?>" method="POST">
               <fieldset>
-                <legend></legend>
-                
-                <div class="control-group">
+                 <div class="control-group">
                   <label class="control-label" for="cedulaTutor">Cédula</label>
                   <div class="controls">
                     <input type="text" class="input" name="cedulaTutor" id="cedulaTutor" placeholder="Cédula del Tutor"><br/><span id="muestra">V-12345678</span>
                   </div>
                 </div>
-                
+
                 <div class="control-group">
                   <label class="control-label" for="nombreTutor">Nombre</label>
                   <div class="controls">
@@ -99,14 +97,14 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
                     <input type="text" class="input" name="apellidoTutor" id="apellidoTutor" placeholder="Apellido del Tutor">
                   </div>
                 </div>
-                
+
                 <div class="control-group">
                   <label class="control-label" for="profesionTutor">Profesión</label>
                   <div class="controls">
                     <input type="text" class="input" name="profesionTutor" id="profesionTutor" placeholder="Profesión del Tutor">
                   </div>
                 </div>
-                
+
                 <div class="control-group">
                   <label class="control-label" for="postgradoTutor">Postgrado</label>
                   <div class="controls">
@@ -127,14 +125,14 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
                     <input type="text" class="input" name="emailTutor" id="emailTutor" placeholder="Email del Tutor">
                   </div>
                 </div>
-                <div class="control-group">
-                </div>
-               
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                  <button class="btn" type="reset">Limpiar</button>
-                </div>
+
+
               </fieldset>
+                
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button class="btn" type="reset">Limpiar</button>
+              </div>
               <input type="hidden" name="MM_insert" value="form" />
             </form>
             </div>

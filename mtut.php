@@ -38,7 +38,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form")) {
-  $updateSQL = sprintf("UPDATE tbltutores SET cedulaTutor=%s, nombreTutor=%s, apellidoTutor=%s, profesionTutor=%s, postgradoTutor=%s, telfTutor=%s, emailTutor=%s WHERE idTutor=%s",
+  $updateSQL = sprintf("UPDATE tbltutores SET cedulaTutor=%s, nombreTutor=%s, apellidoTutor=%s, profesionTutor=%s, postgradoTutor=%s, telfTutor=%s, emailTutor=%s, statusTutor=%s WHERE idTutor=%s",
                        GetSQLValueString(strtoupper($_POST['cedulaTutor']), "text"),
                        GetSQLValueString($_POST['nombreTutor'], "text"),
                        GetSQLValueString($_POST['apellidoTutor'], "text"),
@@ -46,6 +46,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form")) {
                        GetSQLValueString($_POST['postgradoTutor'], "text"),
                        GetSQLValueString($_POST['telfTutor'], "text"),
                        GetSQLValueString($_POST['emailTutor'], "text"),
+                       GetSQLValueString($_POST['statusTutor'], "text"),
                        GetSQLValueString($_POST['idTutor'], "int"));
 
   mysql_select_db($database_bdresumen, $bdresumen);
@@ -136,15 +137,28 @@ $totalRows_constutor = mysql_num_rows($constutor);
                     <input name="emailTutor" type="text" class="input" id="emailTutor" value="<?php echo $row_constutor['emailTutor']; ?>" placeholder="Email del Tutor">
                   </div>
                 </div>
+
                 
                 <div class="control-group">
                 </div>
                
+                <div class="control-group">
+                  <label class="control-label">Status</label>
+                  <div class="controls">
+                    <label class="radio">
+                      <input <?php if (!(strcmp($row_constutor['statusTutor'],"A"))) {echo "checked=\"checked\"";} ?> type="radio" name="statusTutor" id="statusTutor" value="A" />&nbsp;Activo
+                      </label>
+                    <label class="radio">
+                      <input <?php if (!(strcmp($row_constutor['statusTutor'],"I"))) {echo "checked=\"checked\"";} ?> type="radio" name="statusTutor" id="statusTutor" value="I" />&nbsp;Inactivo
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+                
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar</button>
                   <button class="btn" type="reset">Limpiar</button>
                 </div>
-              </fieldset>
               <input type="hidden" name="idTutor" value="<?php echo $_GET['idTutor']; ?>" />
               <input type="hidden" name="MM_update" value="form" />
             </form>

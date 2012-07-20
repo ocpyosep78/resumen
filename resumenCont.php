@@ -45,25 +45,13 @@ mysql_select_db($database_bdresumen, $bdresumen);
 
 if ($_SESSION['nombreUsuario']=='Administrador') {
   if (empty($_POST['texto'])) {
-  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor 
-                      FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t 
-                      WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria
-            AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor
-            ORDER BY idResumen DESC";
+  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor, t.apellidoTutor FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor ORDER BY idResumen DESC";
   } else {
-  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor 
-                      FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t 
-                      WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria
-            AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor
-            AND (r.tituloResumen LIKE '%".$_POST['texto']."%' OR r.textoResumen LIKE '%".$_POST['texto']."%' OR r.anoResumen LIKE '%".$_POST['texto']."%' OR r.autoresResumen LIKE '%".$_POST['texto']."%') 
-            ORDER BY idResumen DESC";
+  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor, t.apellidoTutor FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor AND (r.tituloResumen LIKE '%".$_POST['texto']."%' OR r.textoResumen LIKE '%".$_POST['texto']."%' OR r.anoResumen LIKE '%".$_POST['texto']."%' OR r.autoresResumen LIKE '%".$_POST['texto']."%') ORDER BY idResumen DESC";
   }
 } else {
   if (empty($_POST['texto'])) {
-  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor, 
-                      t.apellidoTutor FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria
-  					AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor AND r.idUsuario = '".$_SESSION['idUsuario']."'
-  					ORDER BY idResumen DESC";
+  $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor, t.apellidoTutor FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u, tbltutores t WHERE r.idUbicacion = u.idUbicacion AND s.idCategoria = c.idCategoria AND r.idSubcategoria = s.idSubcategoria AND r.idTutor = t.idTutor AND r.idUsuario = '".$_SESSION['idUsuario']."' ORDER BY idResumen DESC";
   } else {
   $query_resumenes = "SELECT r.*, c.nombreCategoria, s.nombreSubcategoria, u.nombreUbicacion, t.nombreTutor, 
                       t.apellidoTutor FROM tblresumen r, tblcategoria c, tblsubcategorias s, tblubicaciones u,
@@ -166,7 +154,7 @@ $queryString_resumenes = sprintf("&totalRows_resumenes=%d%s", $totalRows_resumen
           	<td><?php echo $row_resumenes['codigoResumen']; ?></td>
             <td><?php echo $row_resumenes['anoResumen']; ?></td>
             <td><?php echo $row_resumenes['tituloResumen']; ?></td>
-            <td><?php echo $row_resumenes['nombreTutor']; ?></td>
+            <td><?php echo $row_resumenes['nombreTutor']; ?> <?php echo $row_resumenes['apellidoTutor']; ?></td>
             <td><?php echo $row_resumenes['nombreUbicacion']; ?></td>
             <td><?php echo $row_resumenes['autoresResumen']; ?></td>
             <td><?php echo $row_resumenes['nombreCategoria']; ?></td>

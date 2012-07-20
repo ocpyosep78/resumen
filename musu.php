@@ -140,14 +140,14 @@ $totalRows_usuario = mysql_num_rows($usuario);
                     <input type="password" class="input" name="confirmar" id="confirmar" placeholder="Confirme la Clave del Usuario">
                   </div>
                 </div>
-                <div class="control-group">
+                  <div class="control-group">
                     <label class="control-label">Status</label>
                     <div class="controls">
                       <label class="radio">
                         <input <?php if (!(strcmp($row_usuario['statusUsuario'],"A"))) {echo "checked=\"checked\"";} ?> type="radio" name="statusUsuario" id="statusUsuario" value="A" />&nbsp;Activo
                       </label>
                       <label class="radio">
-                            <input <?php if (!(strcmp($row_usuario['statusUsuario'],"I"))) {echo "checked=\"checked\"";} ?> type="radio" name="statusUsuario" id="statusUsuario" value="I" />&nbsp;Inactivo
+                        <input <?php if (!(strcmp($row_usuario['statusUsuario'],"I"))) {echo "checked=\"checked\"";} ?> type="radio" name="statusUsuario" id="statusUsuario" value="I" />&nbsp;Inactivo
                       </label>
                     </div>
                   </div>

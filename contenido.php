@@ -54,6 +54,13 @@ $row_anios = mysql_fetch_assoc($anios);
 $totalRows_anios = mysql_num_rows($anios);
 
 mysql_select_db($database_bdresumen, $bdresumen);
+$query_areas = "SELECT * FROM tblareas ORDER BY nombreArea ASC";
+$areas = mysql_query($query_areas, $bdresumen) or die(mysql_error());
+$row_areas = mysql_fetch_assoc($areas);
+$totalRows_areas= mysql_num_rows($areas);
+
+
+mysql_select_db($database_bdresumen, $bdresumen);
 $query_subcat = "SELECT * FROM tblsubcategorias ORDER BY nombreSubcategoria ASC";
 $subcat = mysql_query($query_subcat, $bdresumen) or die(mysql_error());
 $row_subcat = mysql_fetch_assoc($subcat);
@@ -114,17 +121,17 @@ $totalRows_letras = mysql_num_rows($letras);
                           <select name="idCategoria" id="idCategoria">
                           <option value="">Seleccione una opción</option>
                             <?php
-do {  
-?>
+                            do {  
+                            ?>
                             <option value="<?php echo $row_cates['idCategoria']?>"><?php echo $row_cates['nombreCategoria']?></option>
                             <?php
-							} while ($row_cates = mysql_fetch_assoc($cates));
-							  $rows = mysql_num_rows($cates);
-							  if($rows > 0) {
-								  mysql_data_seek($cates, 0);
-								  $row_cates = mysql_fetch_assoc($cates);
-							  }
-							?>
+              							} while ($row_cates = mysql_fetch_assoc($cates));
+              							  $rows = mysql_num_rows($cates);
+              							  if($rows > 0) {
+              								  mysql_data_seek($cates, 0);
+              								  $row_cates = mysql_fetch_assoc($cates);
+              							  }
+              							?>
                           </select>
                         </div>
                       </div>
@@ -133,18 +140,18 @@ do {
                         <div class="controls">
                           <select name="idArea" id="idArea">
                           <option value="">Seleccione una opción</option>
-                            <?php /*
-do {  
-?>
-                            <option value="<?php echo $row_cates['idCategoria']?>"><?php echo $row_cates['nombreCategoria']?></option>
+                            <?php 
+                            do {  
+                            ?>
+                            <option value="<?php echo $row_areas['idArea']?>"><?php echo $row_areas['nombreArea']?></option>
                             <?php
-              } while ($row_cates = mysql_fetch_assoc($cates));
-                $rows = mysql_num_rows($cates);
-                if($rows > 0) {
-                  mysql_data_seek($cates, 0);
-                  $row_cates = mysql_fetch_assoc($cates);
-                }*/
-              ?>
+                            } while ($row_areas = mysql_fetch_assoc($areas));
+                              $rows = mysql_num_rows($areas);
+                              if($rows > 0) {
+                                mysql_data_seek($areas, 0);
+                                $row_areas = mysql_fetch_assoc($areas);
+                              }
+                            ?>
                           </select>
                         </div>
                       </div>

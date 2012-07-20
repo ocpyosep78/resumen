@@ -89,7 +89,7 @@ $row_ubicaciones = mysql_fetch_assoc($ubicaciones);
 $totalRows_ubicaciones = mysql_num_rows($ubicaciones);
 
 mysql_select_db($database_bdresumen, $bdresumen);
-$query_tutores = "SELECT * FROM tbltutores";
+$query_tutores = "SELECT * FROM tbltutores WHERE statusTutor = 'A'";
 $tutores = mysql_query($query_tutores, $bdresumen) or die(mysql_error());
 $row_tutores = mysql_fetch_assoc($tutores);
 $totalRows_tutores = mysql_num_rows($tutores);
@@ -294,4 +294,15 @@ $codigo = $codsc."-".($row_r['idResumen']+1);
 			frmNRES.addValidation("autoresResumen","req","Por favor ingrese un Texto para el Resumen");
 			/*frmNRES.addValidation("archivoResumen","req","Por favor seleccione un archivo para el Resumen");*/
 						
-      	</script>
+
+      // function check_file(){
+      //   str=document.getElementById('archivoResumen').value.toUpperCase();
+      //   suffix=".PDF";
+      //   suffix2=".PDF";
+      //   if(!(str.indexOf(suffix, str.length - suffix.length) !== -1 || str.indexOf(suffix2, str.length - suffix2.length) !== -1)){
+      //   alert('Archivo no permitido,\nExtensiones permitidas sólo: *.pdf');
+      //       document.getElementById('archivoResumen').value='';
+      //   }
+      // }
+
+    </script>

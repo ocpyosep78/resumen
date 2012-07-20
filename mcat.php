@@ -104,8 +104,8 @@ $totalRows_categoria = mysql_num_rows($categoria);
   		<script>
       		var frmMCAT = new Validator("mcat");
 			
-			frmMCAT.addValidation("codigoCategoria","req","Por favor ingrese un Código para el Postgrado");
-			frmMCAT.addValidation("nombreCategoria","req","Por favor ingrese un Nombre para el Postgrado");
+    			frmMCAT.addValidation("codigoCategoria","req","Por favor ingrese un Código para el Postgrado");
+    			frmMCAT.addValidation("nombreCategoria","req","Por favor ingrese un Nombre para el Postgrado");
 
       	</script>
       

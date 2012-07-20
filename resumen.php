@@ -46,6 +46,12 @@
         });
         
 
+        $('#archivoResumen').change( function() {
+            var filename = $(this).val();
+            if ( ! /\.pdf$/.test(filename)) {
+                alert('Archivo no permitido,\nSólo archivos pdf son permitidos.\n\n\nIntentelo de nuevo');
+            }
+        });
 
 
     });
