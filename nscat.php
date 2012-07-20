@@ -47,10 +47,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
   $Result1 = mysql_query($insertSQL, $bdresumen) or die(mysql_error());
 
   $insertGoTo = "subcategorias.php?p=subcategoriasCont";
-  /*if (isset($_SERVER['QUERY_STRING'])) {
-    $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
-    $insertGoTo .= $_SERVER['QUERY_STRING'];
-  }*/
   header(sprintf("Location: %s", $insertGoTo));
 }
 
@@ -59,6 +55,13 @@ $query_categorias = "SELECT * FROM tblcategoria";
 $categorias = mysql_query($query_categorias, $bdresumen) or die(mysql_error());
 $row_categorias = mysql_fetch_assoc($categorias);
 $totalRows_categorias = mysql_num_rows($categorias);
+
+mysql_select_db($database_bdresumen, $bdresumen);
+$query_ar = "SELECT a.* FROM tblareas a JOIN tblcat_area c ON a.idArea = c.idArea WHERE c.idCategoria = '".$row_categorias['idCategoria']."'";
+$ar = mysql_query($query_ar, $bdresumen) or die(mysql_error());
+$row_ar = mysql_fetch_assoc($ar);
+$totalRows_ar = mysql_num_rows($ar);
+
 ?>
 <div style="margin:20px;">
   <div class="container-fluid" style="margin:auto">
@@ -104,6 +107,27 @@ do {
                     </select>
                   </div>
                 </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="area">Área</label>
+                  <div class="controls">
+                    <select id="area" name="idArea">
+                      <?php
+                      do {  
+                      ?>
+                      <option value="<?php echo $row_ar['idArea']?>"><?php echo $row_ar['nombreArea']?></option>
+                      <?php
+                      } while ($row_ar = mysql_fetch_assoc($ar));
+                        $rows = mysql_num_rows($ar);
+                        if($rows > 0) {
+                            mysql_data_seek($ar, 0);
+                          $row_ar = mysql_fetch_assoc($ar);
+                        }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar</button>
                   <button class="btn" type="reset">Limpiar</button>

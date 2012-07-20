@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2012 at 03:52 PM
+-- Generation Time: Jul 20, 2012 at 04:41 PM
 -- Server version: 5.5.24
 -- PHP Version: 5.3.10-1ubuntu3.2
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `tblareas` (
   `idArea` int(11) NOT NULL AUTO_INCREMENT,
   `nombreArea` varchar(50) NOT NULL,
   PRIMARY KEY (`idArea`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tblareas`
@@ -73,7 +73,16 @@ CREATE TABLE IF NOT EXISTS `tblcat_area` (
   `idArea` int(11) NOT NULL,
   PRIMARY KEY (`idCat_area`),
   KEY `idCategoria` (`idCategoria`,`idArea`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `tblcat_area`
+--
+
+INSERT INTO `tblcat_area` (`idCat_area`, `idCategoria`, `idArea`) VALUES
+(9, 4, 1),
+(11, 5, 1),
+(10, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -203,9 +212,9 @@ INSERT INTO `tblsubcategorias` (`idSubcategoria`, `codigoSubcategoria`, `nombreS
 (6, 'EGP', 'GERENCIA PUBLICA', 4, 1),
 (7, 'EGM', 'GERENCIA DE MERCADEO', 4, 1),
 (8, 'EGE', 'GERENCIA DE EMPRESAS', 4, 1),
-(9, 'EGT', 'GERENCIA DE LA TECNOLOGIA DE LA INFORMACION', 4, 1),
+(9, 'EGT', 'GERENCIA DE LA TECNOLOGIA DE LA INFORMACION', 5, 2),
 (10, 'MAE', 'MAGISTER SCIENTIAURUM EN ADMINISTRACION DE EMPRESAS', 5, 1),
-(11, 'EDE', 'DOCENCIA PARA LA EDUCACIÃ“N BÃSICA', 4, 1);
+(11, 'EDE', 'DOCENCIA PARA LA EDUCACIÃ“N BÃSICA', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -222,6 +231,7 @@ CREATE TABLE IF NOT EXISTS `tbltutores` (
   `postgradoTutor` varchar(100) DEFAULT NULL,
   `telfTutor` varchar(75) NOT NULL,
   `emailTutor` varchar(75) NOT NULL,
+  `statusTutor` varchar(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`idTutor`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
@@ -229,9 +239,9 @@ CREATE TABLE IF NOT EXISTS `tbltutores` (
 -- Dumping data for table `tbltutores`
 --
 
-INSERT INTO `tbltutores` (`idTutor`, `cedulaTutor`, `nombreTutor`, `apellidoTutor`, `profesionTutor`, `postgradoTutor`, `telfTutor`, `emailTutor`) VALUES
-(14, 'V-12540703', 'CLARIBEL', 'SILVA', 'ING EN COMPUTACION', 'ESPC. EN GERENCIA EN TECNOLOGIA DE LA INFORMACIÃ“N', '04247281953', 'silvac@uvm.edu.ve'),
-(15, 'V-14460452', 'Johnmer', 'Bencomo', 'hgfhg', 'hgfjtfg', '04263714718', 'bjohnmer@gmail.com');
+INSERT INTO `tbltutores` (`idTutor`, `cedulaTutor`, `nombreTutor`, `apellidoTutor`, `profesionTutor`, `postgradoTutor`, `telfTutor`, `emailTutor`, `statusTutor`) VALUES
+(14, 'V-12540703', 'CLARIBEL', 'SILVA', 'ING EN COMPUTACION', 'ESPC. EN GERENCIA EN TECNOLOGIA DE LA INFORMACIÃ“N', '04247281953', 'silvac@uvm.edu.ve', 'A'),
+(15, 'V-14460452', 'Johnmer', 'Bencomo', 'hgfhg', 'hgfjtfg', '04263714718', 'bjohnmer@gmail.com', 'A');
 
 -- --------------------------------------------------------
 

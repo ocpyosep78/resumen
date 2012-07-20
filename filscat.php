@@ -68,6 +68,29 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 			mysql_data_seek($scat, 0);
 			$row_scat = mysql_fetch_assoc($scat);
 		}
+
+
+    $query_scat = sprintf("SELECT a.* FROM tblareas a JOIN tblcat_area c ON a.idArea = c.idArea WHERE c.idCategoria = %s", GetSQLValueString($colname_scat, "int"));
+
+    $scat = mysql_query($query_scat, $bdresumen) or die(mysql_error());
+    $row_scat = mysql_fetch_assoc($scat);
+    $totalRows_scat = mysql_num_rows($scat);
+    do {
+      
+      $json['area']['id'][] = $row_scat['idArea'];      
+      $json['area']['nombre'][] = $row_scat['nombreArea'];
+
+    }while($row_scat = mysql_fetch_assoc($scat));
+    $rowsscat = mysql_num_rows($scat);
+    
+    if($rowsscat > 0) {
+      mysql_data_seek($scat, 0);
+      $row_scat = mysql_fetch_assoc($scat);
+    }
+
+
+
+
     echo json_encode($json);
     mysql_free_result($scat);
 ?>

@@ -44,9 +44,9 @@ $startRow_subcategorias = $pageNum_subcategorias * $maxRows_subcategorias;
 mysql_select_db($database_bdresumen, $bdresumen);
 
 if (empty($_POST['texto'])) {
-  $query_subcategorias = "SELECT s.*, c.nombreCategoria FROM tblsubcategorias s, tblcategoria c WHERE s.idCategoria = c.idCategoria ORDER BY nombreSubcategoria ASC";
+  $query_subcategorias = "SELECT s.*, c.nombreCategoria, a.nombreArea FROM tblsubcategorias s, tblcategoria c, tblareas a WHERE s.idCategoria = c.idCategoria AND s.idArea = a.idArea ORDER BY nombreSubcategoria ASC";
 } else {
-  $query_subcategorias = "SELECT s.*, c.nombreCategoria FROM tblsubcategorias s, tblcategoria c WHERE s.idCategoria = c.idCategoria AND (s.nombreSubcategoria LIKE '%".$_POST['texto']."%' OR codigoSubcategoria LIKE '%".$_POST['texto']."%') ORDER BY nombreSubcategoria ASC";
+  $query_subcategorias = "SELECT s.*, c.nombreCategoria, a.nombreArea FROM tblsubcategorias s, tblcategoria c, tblareas a WHERE s.idCategoria = c.idCategoria AND s.idArea = a.idArea AND (s.nombreSubcategoria LIKE '%".$_POST['texto']."%' OR codigoSubcategoria LIKE '%".$_POST['texto']."%') ORDER BY nombreSubcategoria ASC";
 }
 
 $query_limit_subcategorias = sprintf("%s LIMIT %d, %d", $query_subcategorias, $startRow_subcategorias, $maxRows_subcategorias);
@@ -122,6 +122,7 @@ $queryString_subcategorias = sprintf("&totalRows_subcategorias=%d%s", $totalRows
             <th>Código</th>
             <th>Nombre</th>
             <th>Postgrado</th>
+            <th>Área</th>
             <?php if ($_SESSION['modificarSubcategorias']=="Y") {?><th>&nbsp;</th><?php } ?>
             <?php if ($_SESSION['eliminarSubcategorias']=="Y") {?><th>&nbsp;</th><?php } ?>
           </tr>
@@ -133,6 +134,7 @@ $queryString_subcategorias = sprintf("&totalRows_subcategorias=%d%s", $totalRows
           	<td><?php echo $row_subcategorias['codigoSubcategoria']; ?></td>
             <td><?php echo $row_subcategorias['nombreSubcategoria']; ?></td>
             <td><?php echo $row_subcategorias['nombreCategoria']; ?></td>
+            <td><?php echo $row_subcategorias['nombreArea']; ?></td>
             <?php if ($_SESSION['modificarSubcategorias']=="Y") {?><td><a href="subcategorias.php?p=mscat&idSubcategoria=<?php echo $row_subcategorias['idSubcategoria']; ?>"><i class="icon-edit"></i> Modificar</a></td><?php } ?>
             <?php if ($_SESSION['eliminarSubcategorias']=="Y") {?><td><a href="delscat.php?idSubcategoria=<?php echo $row_subcategorias['idSubcategoria']; ?>" onclick="return confirme();"><i class="icon-remove"></i> Eliminar</a></a></td><?php } ?>
           </tr>

@@ -38,20 +38,17 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form")) {
-  $updateSQL = sprintf("UPDATE tblsubcategorias SET codigoSubcategoria=%s, nombreSubcategoria=%s, idCategoria=%s WHERE idSubcategoria=%s",
+  $updateSQL = sprintf("UPDATE tblsubcategorias SET codigoSubcategoria=%s, nombreSubcategoria=%s, idCategoria=%s, idArea=%s WHERE idSubcategoria=%s",
                        GetSQLValueString($_POST['codigoSubcategoria'], "text"),
                        GetSQLValueString($_POST['nombreSubcategoria'], "text"),
                        GetSQLValueString($_POST['idCategoria'], "int"),
+                       GetSQLValueString($_POST['idArea'], "int"),
                        GetSQLValueString($_POST['idSubcategoria'], "int"));
 
   mysql_select_db($database_bdresumen, $bdresumen);
   $Result1 = mysql_query($updateSQL, $bdresumen) or die(mysql_error());
 
   $updateGoTo = "subcategorias.php?p=subcategoriasCont";
-  /*if (isset($_SERVER['QUERY_STRING'])) {
-    $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
-    $updateGoTo .= $_SERVER['QUERY_STRING'];
-  }*/
   header(sprintf("Location: %s", $updateGoTo));
 }
 
@@ -70,6 +67,13 @@ $query_subcategorias = sprintf("SELECT * FROM tblsubcategorias WHERE idSubcatego
 $subcategorias = mysql_query($query_subcategorias, $bdresumen) or die(mysql_error());
 $row_subcategorias = mysql_fetch_assoc($subcategorias);
 $totalRows_subcategorias = mysql_num_rows($subcategorias);
+
+mysql_select_db($database_bdresumen, $bdresumen);
+$query_ar = "SELECT * FROM tblareas";
+$ar = mysql_query($query_ar, $bdresumen) or die(mysql_error());
+$row_ar = mysql_fetch_assoc($ar);
+$totalRows_ar = mysql_num_rows($ar);
+
 ?>
 <div style="margin:20px;">
   <div class="container-fluid" style="margin:auto">
@@ -115,6 +119,27 @@ do {
                     </select>
                   </div>
                 </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="area">Área</label>
+                  <div class="controls">
+                    <select id="area" name="idArea">
+                      <?php
+                      do {  
+                      ?>
+                      <option value="<?php echo $row_ar['idArea']?>" <?php if (!(strcmp($row_subcategorias['idArea'], $row_ar['idArea']))) {echo "selected=\"selected\"";} ?>><?php echo $row_ar['nombreArea']?></option>
+                      <?php
+                      } while ($row_ar = mysql_fetch_assoc($ar));
+                        $rows = mysql_num_rows($ar);
+                        if($rows > 0) {
+                            mysql_data_seek($ar, 0);
+                          $row_ar = mysql_fetch_assoc($ar);
+                        }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">Guardar</button>
                   <button class="btn" type="reset">Limpiar</button>

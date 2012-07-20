@@ -21,6 +21,30 @@
                     $("#idSubcategoria").html("<option value=''>Todos los Programas</option>");
                     for (i=0; i<data.subcategoria.id.length; i++) {
                         if ((data.subcategoria.id[i])) {
+
+                            $('#idSubcategoria').append("<option value='"+data.subcategoria.id[i]+"'>"+data.subcategoria.nombre[i]+"</option>");
+                        }
+                    }
+                    $("#idArea").html("<option value=''>Todas las Áreas</option>");
+                    for (i=0; i<data.area.id.length; i++) {
+                        if ((data.area.id[i])) {
+
+                            $('#idArea').append("<option value='"+data.area.id[i]+"'>"+data.area.nombre[i]+"</option>");
+                            
+                        }
+                    }
+
+                }, 'json');        
+            });
+        });
+        $("#idArea").change(function () {
+            $("#idArea option:selected").each(function () {
+                idArea=$(this).val();
+                idCategoria=$("#idCategoria").val();
+                $.post("filscatba.php", { idArea: idArea, idCategoria: idCategoria }, function(data){
+                    $("#idSubcategoria").html("<option value=''>Todos los Programas</option>");
+                    for (i=0; i<data.subcategoria.id.length; i++) {
+                        if ((data.subcategoria.id[i])) {
                             $('#idSubcategoria').append("<option value='"+data.subcategoria.id[i]+"'>"+data.subcategoria.nombre[i]+"</option>");
                         }
                     }
