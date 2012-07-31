@@ -106,7 +106,7 @@ $totalRows_letras = mysql_num_rows($letras);
                           <div class="control-group">
                         <label class="control-label" for="tutorResumen">Tutor</label>
                         <div class="controls">
-                          <input type="text" name="tutorResumen" id="tutorResumen" placeholder="Escriba el Nombre del Tutor" />
+                          <input type="text" name="tutorResumen" id="tutorResumen" placeholder="Escriba Primer Nombre, Primer Apellido" />
                         </div>
                       </div>
                       <div class="control-group">

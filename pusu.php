@@ -37,7 +37,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
-  $updateSQL = sprintf("UPDATE tblpermisos SET modUsuario=%s, agregarUsuario=%s, modificarUsuario=%s, eliminarUsuario=%s, modTutores=%s, agregarTutores=%s, modificarTutores=%s, eliminarTutores=%s, modCategorias=%s, agregarCategorias=%s, modificarCategorias=%s, eliminarCategorias=%s, modSubcategorias=%s, agregarSubcategorias=%s, modificarSubcategorias=%s, eliminarSubcategorias=%s, modResumen=%s, agregarResumen=%s, modificarResumen=%s, eliminarResumen=%s, modUbicaciones=%s, agregarUbicaciones=%s, modificarUbicaciones=%s, eliminarUbicaciones=%s, modAreas=%s, agregarAreas=%s, modificarAreas=%s, eliminarAreas=%s WHERE idUsuario=%s",
+  $updateSQL = sprintf("UPDATE tblpermisos SET modUsuario=%s, agregarUsuario=%s, modificarUsuario=%s, eliminarUsuario=%s, modTutores=%s, agregarTutores=%s, modificarTutores=%s, eliminarTutores=%s, modCategorias=%s, agregarCategorias=%s, modificarCategorias=%s, eliminarCategorias=%s, modSubcategorias=%s, agregarSubcategorias=%s, modificarSubcategorias=%s, eliminarSubcategorias=%s, modResumen=%s, agregarResumen=%s, modificarResumen=%s, eliminarResumen=%s, modUbicaciones=%s, agregarUbicaciones=%s, modificarUbicaciones=%s, eliminarUbicaciones=%s, modArea=%s, agregarArea=%s, modificarArea=%s, eliminarArea=%s WHERE idUsuario=%s",
                        GetSQLValueString(isset($_POST['modUsuario']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['agregarUsuario']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['modificarUsuario']) ? "true" : "", "defined","'Y'","'N'"),
@@ -62,10 +62,10 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
                        GetSQLValueString(isset($_POST['agregarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['modificarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['eliminarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['modAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['agregarAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['modificarAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['eliminarAreas']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['modArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['agregarArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['modificarArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['eliminarArea']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString($_POST['idUsuario'], "int"));
 
   mysql_select_db($database_bdresumen, $bdresumen);
@@ -80,7 +80,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
-  $insertSQL = sprintf("INSERT INTO tblpermisos (idPermisos, idUsuario, modUsuario, agregarUsuario, modificarUsuario, eliminarUsuario, modTutores, agregarTutores, modificarTutores, eliminarTutores, modCategorias, agregarCategorias, modificarCategorias, eliminarCategorias, modSubcategorias, agregarSubcategorias, modificarSubcategorias, eliminarSubcategorias, modResumen, agregarResumen, modificarResumen, eliminarResumen, modUbicaciones, agregarUbicaciones, modificarUbicaciones, eliminarUbicaciones, modAreas, agregarAreas, modificarAreas, eliminarAreas) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO tblpermisos (idPermisos, idUsuario, modUsuario, agregarUsuario, modificarUsuario, eliminarUsuario, modTutores, agregarTutores, modificarTutores, eliminarTutores, modCategorias, agregarCategorias, modificarCategorias, eliminarCategorias, modSubcategorias, agregarSubcategorias, modificarSubcategorias, eliminarSubcategorias, modResumen, agregarResumen, modificarResumen, eliminarResumen, modUbicaciones, agregarUbicaciones, modificarUbicaciones, eliminarUbicaciones, modArea, agregarArea, modificarArea, eliminarArea) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['idPermisos'], "int"),
                        GetSQLValueString($_POST['idUsuario'], "int"),
                        GetSQLValueString(isset($_POST['modUsuario']) ? "true" : "", "defined","'Y'","'N'"),
@@ -107,10 +107,10 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
                        GetSQLValueString(isset($_POST['agregarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['modificarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
                        GetSQLValueString(isset($_POST['eliminarUbicaciones']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['modAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['agregarAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['modificarAreas']) ? "true" : "", "defined","'Y'","'N'"),
-                       GetSQLValueString(isset($_POST['eliminarAreas']) ? "true" : "", "defined","'Y'","'N'"));
+                       GetSQLValueString(isset($_POST['modArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['agregarArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['modificarArea']) ? "true" : "", "defined","'Y'","'N'"),
+                       GetSQLValueString(isset($_POST['eliminarArea']) ? "true" : "", "defined","'Y'","'N'"));
 
   mysql_select_db($database_bdresumen, $bdresumen);
   $Result1 = mysql_query($insertSQL, $bdresumen) or die(mysql_error());

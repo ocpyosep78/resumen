@@ -35,7 +35,7 @@ function init() {
   var elements = document.getElementsByTagName('textarea');
   for (var i=0; i<elements.length; i++)
     if (wantToMake(elements[i].id))
-      makeWysiwyg(elements[i]);
+      makeWysiwyg(elements[i]);  
 }
 
 function wantToMake(id) {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2012 at 04:41 PM
+-- Generation Time: Jul 30, 2012 at 02:42 PM
 -- Server version: 5.5.24
 -- PHP Version: 5.3.10-1ubuntu3.2
 
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `tblpermisos` (
   `eliminarArea` varchar(1) NOT NULL DEFAULT 'N',
   PRIMARY KEY (`idPermisos`),
   KEY `idUsuario` (`idUsuario`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tblpermisos`
@@ -150,7 +150,9 @@ CREATE TABLE IF NOT EXISTS `tblpermisos` (
 
 INSERT INTO `tblpermisos` (`idPermisos`, `idUsuario`, `modUsuario`, `agregarUsuario`, `modificarUsuario`, `eliminarUsuario`, `modTutores`, `agregarTutores`, `modificarTutores`, `eliminarTutores`, `modCategorias`, `agregarCategorias`, `modificarCategorias`, `eliminarCategorias`, `modSubcategorias`, `agregarSubcategorias`, `modificarSubcategorias`, `eliminarSubcategorias`, `modResumen`, `agregarResumen`, `modificarResumen`, `eliminarResumen`, `modUbicaciones`, `agregarUbicaciones`, `modificarUbicaciones`, `eliminarUbicaciones`, `modArea`, `agregarArea`, `modificarArea`, `eliminarArea`) VALUES
 (1, 1, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'),
-(5, 11, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
+(5, 11, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y'),
+(6, 12, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'N'),
+(7, 13, 'Y', 'N', 'Y', 'Y', 'N', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'N', 'N', 'N', 'Y', 'Y', 'Y', 'Y', 'N');
 
 -- --------------------------------------------------------
 
@@ -176,15 +178,16 @@ CREATE TABLE IF NOT EXISTS `tblresumen` (
   KEY `idUbicacion` (`idUbicacion`,`idSubcategoria`,`idTutor`),
   KEY `idCategoria` (`idCategoria`),
   KEY `idUsuario` (`idUsuario`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `tblresumen`
 --
 
 INSERT INTO `tblresumen` (`idResumen`, `codigoResumen`, `anoResumen`, `idUbicacion`, `tituloResumen`, `textoResumen`, `archivoResumen`, `autoresResumen`, `idCategoria`, `idSubcategoria`, `idTutor`, `fechaResumen`, `idUsuario`) VALUES
-(21, 'EGI-1', '2002', 3, 'Actividades', 'JHAS GDASHJGD JASGD JASGJDGAS', '2.pdf', 'kjhsd kfjh sdkjfh skjhf kjsd', 4, 5, 14, '2012-07-13', 1),
-(22, 'EGI-22', '2012', 3, 'TÃ­tulo', '<p>\r\nSed interdum tincidunt metus, vitae sodales nibh ultrices in. Phasellus \r\nadipiscing eros id elit bibendum ornare. Ut sed nisl sit amet lectus \r\nmattis tempor. Nulla dictum urna sed arcu imperdiet placerat. Integer \r\negestas velit quis libero luctus feugiat. Praesent eu nisl risus, ut \r\nadipiscing risus. Morbi tortor quam, rutrum sit amet placerat eget, \r\ndictum id mi. Donec in sapien fermentum dolor scelerisque pharetra. \r\nVivamus urna nunc, porttitor sit amet gravida et, venenatis a odio. \r\nEtiam placerat mollis mi dictum posuere.\r\n</p>\r\n<p>\r\nAenean eu sapien ante. Suspendisse a nisi sit amet sapien feugiat \r\naliquam. Nulla urna quam, mattis vel bibendum feugiat, pellentesque id \r\nmagna. Sed eu arcu felis, eget porttitor felis. Donec dapibus est a enim\r\n facilisis dapibus. Nunc condimentum, mauris id bibendum condimentum, \r\nrisus augue scelerisque dolor, viverra consectetur quam enim non magna. \r\nSed vel est augue. Nulla aliquam tellus at velit fermentum suscipit. \r\nProin pellentesque mollis mi, ultricies pharetra arcu lobortis ac. \r\nAenean bibendum risus mi, nec ullamcorper risus. Proin porttitor sapien \r\nin lacus porta hendrerit. In hac habitasse platea dictumst. Suspendisse \r\npotenti. Suspendisse posuere metus eu dolor tempus placerat.\r\n</p>', 'GP-P24.pdf', 'Johnmer Bencomo', 4, 5, 14, '2012-07-15', 11);
+(21, '0', '2002', 3, 'Actividades', 'JHAS GDASHJGD JASGD JASGJDGAS', '17.pdf', 'kjhsd kfjh sdkjfh skjhf kjsd', 4, 5, 14, '2012-07-13', 1),
+(22, 'EGI-22', '2012', 3, 'TÃ­tulo', '<p>\r\nSed interdum tincidunt metus, vitae sodales nibh ultrices in. Phasellus \r\nadipiscing eros id elit bibendum ornare. Ut sed nisl sit amet lectus \r\nmattis tempor. Nulla dictum urna sed arcu imperdiet placerat. Integer \r\negestas velit quis libero luctus feugiat. Praesent eu nisl risus, ut \r\nadipiscing risus. Morbi tortor quam, rutrum sit amet placerat eget, \r\ndictum id mi. Donec in sapien fermentum dolor scelerisque pharetra. \r\nVivamus urna nunc, porttitor sit amet gravida et, venenatis a odio. \r\nEtiam placerat mollis mi dictum posuere.\r\n</p>\r\n<p>\r\nAenean eu sapien ante. Suspendisse a nisi sit amet sapien feugiat \r\naliquam. Nulla urna quam, mattis vel bibendum feugiat, pellentesque id \r\nmagna. Sed eu arcu felis, eget porttitor felis. Donec dapibus est a enim\r\n facilisis dapibus. Nunc condimentum, mauris id bibendum condimentum, \r\nrisus augue scelerisque dolor, viverra consectetur quam enim non magna. \r\nSed vel est augue. Nulla aliquam tellus at velit fermentum suscipit. \r\nProin pellentesque mollis mi, ultricies pharetra arcu lobortis ac. \r\nAenean bibendum risus mi, nec ullamcorper risus. Proin porttitor sapien \r\nin lacus porta hendrerit. In hac habitasse platea dictumst. Suspendisse \r\npotenti. Suspendisse posuere metus eu dolor tempus placerat.\r\n</p>', 'GP-P24.pdf', 'Johnmer Bencomo', 4, 5, 14, '2012-07-15', 11),
+(24, 'EGI-23', '2010', 3, 'Phasellus eu metus nulla,', '<span style="font-family: Arial, Helvetica, sans; font-size: 11px; line-height: 14px; text-align: justify; ">Phasellus eu metus nulla, in molestie purus. Phasellus ac magna vitae libero pulvinar consequat ac in nulla. Quisque ac lacus vel dui elementum porttitor. Integer lacus tortor, eleifend a fermentum nec, luctus ac diam. Nunc eu sapien id felis viverra vehicula vel id sapien. Duis at nulla justo. Vestibulum vehicula luctus mollis. Vestibulum augue ligula, pretium sit amet ultricies in, gravida sed est. Phasellus nec libero ligula. Nunc neque quam, pulvinar et malesuada a, fringilla sed felis. Suspendisse et erat at urna sodales condimentum ut eget dolor. Etiam et nibh sem. In hac habitasse platea dictumst. Fusce vitae enim lacus, nec aliquam purus.</span>', '15.pdf', 'augue ligula, pretium ', 4, 5, 14, '2012-07-30', 1);
 
 -- --------------------------------------------------------
 
@@ -201,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `tblsubcategorias` (
   PRIMARY KEY (`idSubcategoria`),
   KEY `idCategoria` (`idCategoria`),
   KEY `idArea` (`idArea`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `tblsubcategorias`
@@ -214,7 +217,8 @@ INSERT INTO `tblsubcategorias` (`idSubcategoria`, `codigoSubcategoria`, `nombreS
 (8, 'EGE', 'GERENCIA DE EMPRESAS', 4, 1),
 (9, 'EGT', 'GERENCIA DE LA TECNOLOGIA DE LA INFORMACION', 5, 2),
 (10, 'MAE', 'MAGISTER SCIENTIAURUM EN ADMINISTRACION DE EMPRESAS', 5, 1),
-(11, 'EDE', 'DOCENCIA PARA LA EDUCACIÃ“N BÃSICA', 5, 1);
+(11, 'EDE', 'DOCENCIA PARA LA EDUCACIÃ“N BÃSICA', 5, 1),
+(13, 'PRGWWW', 'PROGRAMA WWW', 5, 2);
 
 -- --------------------------------------------------------
 
@@ -277,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `tblusuario` (
   `cedulaUsuario` varchar(25) NOT NULL,
   `statusUsuario` varchar(1) NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `tblusuario`

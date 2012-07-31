@@ -46,52 +46,55 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form")) {
 			} else {
 			  if (!file_exists("uploads/" . $_FILES["archivoResumen"]["name"])) {
 					unlink("uploads/" . $_POST["archivoResumen2"]);
-					move_uploaded_file($_FILES["archivoResumen"]["tmp_name"],"uploads/" . $_FILES["archivoResumen"]["name"]);
-					$updateSQL = sprintf("UPDATE tblresumen SET codigoResumen = %s, anoResumen = %s, idUbicacion = %s, tituloResumen = %s, textoResumen = %s, archivoResumen = %s, autoresResumen = %s, idCategoria = %s, idSubcategoria = %s, idTutor = %s WHERE idResumen = %s", GetSQLValueString($_POST['codigoResumen'], "int"),
-						   GetSQLValueString($_POST['anoResumen'], "text"),
-						   GetSQLValueString($_POST['idUbicacion'], "int"),
-						   GetSQLValueString($_POST['tituloResumen'], "text"),
-						   GetSQLValueString($_POST['textoResumen'], "text"),
-						   GetSQLValueString($_FILES["archivoResumen"]["name"], "text"),
-						   GetSQLValueString($_POST['autoresResumen'], "text"),
-						   GetSQLValueString($_POST['idCategoria'], "int"),
-						   GetSQLValueString($_POST['idSubcategoria'], "int"),
-						   GetSQLValueString($_POST['idTutor'], "int"),
-						   GetSQLValueString($_POST['idResumen'], "int"));
-		
-		
-					  mysql_select_db($database_bdresumen, $bdresumen);
-					  $Result1 = mysql_query($updateSQL, $bdresumen) or die(mysql_error());
-		
-					  $updateGoTo = "resumen.php";
-					  header(sprintf("Location: %s", $updateGoTo));
-		
-				} else {
-				  $errorf = "<div class='alert alert-error'><h3>Error:</h3>Ya existe un archivo con éste nombre</div>";
-				}
-		  }
-		} else {
-			$errorf = "<div class='alert alert-error'><h3>Error:</h3>Archivo Inválido</div>";
-		}
-	} else {
-		
-		$updateSQL = sprintf("UPDATE tblresumen SET codigoResumen = %s, anoResumen = %s, idUbicacion = %s, tituloResumen = %s, textoResumen = %s, autoresResumen = %s, idSubcategoria = %s, idTutor = %s WHERE idResumen = %s", GetSQLValueString($_POST['codigoResumen'], "text"),
-						   GetSQLValueString($_POST['anoResumen'], "text"),
-						   GetSQLValueString($_POST['idUbicacion'], "int"),
-						   GetSQLValueString($_POST['tituloResumen'], "text"),
-						   GetSQLValueString($_POST['textoResumen'], "text"),
-						   GetSQLValueString($_POST['autoresResumen'], "text"),
-						   GetSQLValueString($_POST['idSubcategoria'], "int"),
-						   GetSQLValueString($_POST['idTutor'], "int"),
-						   GetSQLValueString($_POST['idResumen'], "int"));
-		
-		
-					  mysql_select_db($database_bdresumen, $bdresumen);
-					  $Result1 = mysql_query($updateSQL, $bdresumen) or die(mysql_error());
-		
-					  $updateGoTo = "resumen.php";
-					  header(sprintf("Location: %s", $updateGoTo));
-	
+          // echo "uploads/" . $_POST["archivoResumen2"];
+          move_uploaded_file($_FILES["archivoResumen"]["tmp_name"],"uploads/" . $_FILES["archivoResumen"]["name"]);
+          
+          $updateSQL = sprintf("UPDATE tblresumen SET codigoResumen = %s, anoResumen = %s, idUbicacion = %s, tituloResumen = %s, textoResumen = %s, archivoResumen = %s, autoresResumen = %s, idCategoria = %s, idSubcategoria = %s, idTutor = %s WHERE idResumen = %s", GetSQLValueString($_POST['codigoResumen'], "int"),
+               GetSQLValueString($_POST['anoResumen'], "text"),
+               GetSQLValueString($_POST['idUbicacion'], "int"),
+               GetSQLValueString($_POST['tituloResumen'], "text"),
+               GetSQLValueString($_POST['textoResumen'], "text"),
+               GetSQLValueString($_FILES["archivoResumen"]["name"], "text"),
+               GetSQLValueString($_POST['autoresResumen'], "text"),
+               GetSQLValueString($_POST['idCategoria'], "int"),
+               GetSQLValueString($_POST['idSubcategoria'], "int"),
+               GetSQLValueString($_POST['idTutor'], "int"),
+               GetSQLValueString($_POST['idResumen'], "int"));
+    
+    
+            mysql_select_db($database_bdresumen, $bdresumen);
+            $Result1 = mysql_query($updateSQL, $bdresumen) or die(mysql_error());
+    
+            $updateGoTo = "resumen.php";
+            header(sprintf("Location: %s", $updateGoTo));
+    
+        } else {
+          $errorf = "<div class='alert alert-error'><h3>Error:</h3>Ya existe un archivo con éste nombre</div>";
+        }
+      }
+    } else {
+      $errorf = "<div class='alert alert-error'><h3>Error:</h3>Archivo Inválido</div>";
+    }
+  } else {
+    
+    $updateSQL = sprintf("UPDATE tblresumen SET codigoResumen = %s, anoResumen = %s, idUbicacion = %s, tituloResumen = %s, textoResumen = %s, autoresResumen = %s, idSubcategoria = %s, idTutor = %s WHERE idResumen = %s", GetSQLValueString($_POST['codigoResumen'], "text"),
+               GetSQLValueString($_POST['anoResumen'], "text"),
+               GetSQLValueString($_POST['idUbicacion'], "int"),
+               GetSQLValueString($_POST['tituloResumen'], "text"),
+               GetSQLValueString($_POST['textoResumen'], "text"),
+               GetSQLValueString($_POST['autoresResumen'], "text"),
+               GetSQLValueString($_POST['idSubcategoria'], "int"),
+               GetSQLValueString($_POST['idTutor'], "int"),
+               GetSQLValueString($_POST['idResumen'], "int"));
+    
+    
+            mysql_select_db($database_bdresumen, $bdresumen);
+            $Result1 = mysql_query($updateSQL, $bdresumen) or die(mysql_error());
+    
+            $updateGoTo = "resumen.php";
+            header(sprintf("Location: %s", $updateGoTo));
+  
+            echo "ENTRA 1";
 	}
 }
 

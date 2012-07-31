@@ -38,9 +38,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
-  $insertSQL = sprintf("INSERT INTO tblsubcategorias (codigoSubcategoria, nombreSubcategoria, idCategoria) VALUES (%s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO tblsubcategorias (codigoSubcategoria, nombreSubcategoria, idArea,  idCategoria) VALUES (%s, %s, %s, %s)",
                        GetSQLValueString($_POST['codigoSubcategoria'], "text"),
                        GetSQLValueString($_POST['nombreSubcategoria'], "text"),
+                       GetSQLValueString($_POST['idArea'], "int"),
                        GetSQLValueString($_POST['idCategoria'], "int"));
 
   mysql_select_db($database_bdresumen, $bdresumen);

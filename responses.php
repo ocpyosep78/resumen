@@ -97,8 +97,9 @@ if (!empty($_GET['textoResumen'])) {
 	
 	if (!empty($_GET['tutorResumen'])) {
 		
+    $tutor = explode(" ", $_GET['tutorResumen']);
 		mysql_select_db($database_bdresumen, $bdresumen);
-		$query_tut = 'SELECT * FROM tbltutores WHERE nombreTutor LIKE "%'.$_GET['tutorResumen'].'%"';
+		$query_tut = 'SELECT * FROM tbltutores WHERE nombreTutor LIKE "%'.$tutor[0].'%" OR apellidoTutor LIKE "%'.$tutor[1].'%"';
 		$tut = mysql_query($query_tut, $bdresumen) or die(mysql_error());
 		$row_tut = mysql_fetch_assoc($tut);
 	
